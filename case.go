@@ -9,8 +9,8 @@ import (
 func main() {
 	fmt.Println(sumArray([]int{1, 2, 3}))
 	fmt.Println(dateFormatConversion("Tue 16 Jul 2019"))
-	fmt.Println(calculateFactorial(5))
-	fmt.Println(timeConvert(5,28))
+	fmt.Println(calculateFactorial(0))
+	fmt.Println(timeConvert(1,40))
 	fmt.Println(minimumDeletion([]int{3,3,2,1,3}))
 }
 
@@ -39,7 +39,7 @@ func dateFormatConversion(date string) string {
 
 // Case 3
 func calculateFactorial(n int) int {
-	if n == 1 {
+	if n == 0 {
 		return 1
 	}
 	return n * calculateFactorial(n-1)
@@ -50,7 +50,7 @@ func timeConvert(h int, m int) string {
 	hour := findWord(h)
 	minutes := findWord(m)
 	var result string
-	if m <= 30 {
+	if m <= 30 && m >= 0 && h >= 0 && h <= 24 {
 		if m == 0 {
 			result = hour + " o'clock"
 		} else if m < 30 && m != 15 {
@@ -60,7 +60,7 @@ func timeConvert(h int, m int) string {
 		} else if m == 30 {
 			result = "half past " + hour
 		}
-	} else if m > 30 {
+	} else if m > 30 && m < 60 && h >= 0 && h <= 24 {
 		convertMinutes := 60 - m
 		hourConverted := findWord(h + 1)
 		minutesConverted := findWord(convertMinutes)
@@ -69,6 +69,8 @@ func timeConvert(h int, m int) string {
 		} else {
 			result = minutesConverted + " minutes to " + hourConverted
 		}
+	} else {
+		result = "Please provide rigth number input for hour or minutes"
 	}
 	return result
 }
