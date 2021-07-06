@@ -8,7 +8,7 @@ import (
 
 func main() {
 	fmt.Println(sumArray([]int{1, 2, 3}))
-	fmt.Println(dateFormatConversion("Tue 1 Jan 2019"))
+	fmt.Println(dateFormatConversion("Tue 28 Feb 2019"))
 	fmt.Println(calculateFactorial(0))
 	fmt.Println(timeConvert(1, 40))
 	fmt.Println(minimumDeletion([]int{3, 3, 2, 1, 3}))
@@ -42,8 +42,8 @@ func dateFormatConversion(date string) string {
 	}
 
 	// Check if date above the monthsDate array
-	dateNumberString, _ := strconv.Atoi(word[1])
-	if dateNumberString > monthsDate[monthNumber-1] || dateNumberString < 1 {
+	dateNumberInt, _ := strconv.Atoi(word[1])
+	if dateNumberInt > monthsDate[monthNumber-1] || dateNumberInt < 1 {
 		return "Please provide the rigth date number"
 	}
 
