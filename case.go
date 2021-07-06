@@ -10,7 +10,7 @@ func main() {
 	fmt.Println(sumArray([]int{1, 2, 3}))
 	fmt.Println(dateFormatConversion("Tue 28 Feb 2019"))
 	fmt.Println(calculateFactorial(0))
-	fmt.Println(timeConvert(1, 40))
+	fmt.Println(timeConvert(24, 30))
 	fmt.Println(minimumDeletion([]int{3, 3, 2, 1, 3}))
 }
 
@@ -83,7 +83,7 @@ func timeConvert(h int, m int) string {
 		} else if m == 30 {
 			result = "half past " + hour
 		}
-	} else if m > 30 && m < 60 && h >= 0 && h <= 24 {
+	} else if m > 30 && m < 60 && h >= 0 && h <= 23 {
 		convertMinutes := 60 - m
 		hourConverted := findWord(h + 1)
 		minutesConverted := findWord(convertMinutes)
